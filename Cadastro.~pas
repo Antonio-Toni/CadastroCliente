@@ -646,11 +646,13 @@ begin
        cOk := 'N';
      end;
 
-  if (Messagedlg('Confirma envio do e-mail  ?',mtConfirmation,[mbYes,mbNo],0) = mrNo) then
+  if (cOk = 'S') and
+     (Messagedlg('Confirma envio do e-mail  ?',mtConfirmation,[mbYes,mbNo],0) = mrNo) then
      cOk := 'N';
 
   cEmailEnvi := '';   //  'NomeEnvio'
-  if (cEmailEnvi = '') then
+  if (cOk = 'S') and
+     (cEmailEnvi = '') then
      Begin
        application.messagebox('E-Mail do Destinatario não informado !!!','Atenção',MB_OK+MB_ICONInformation);
        cOk := 'N';

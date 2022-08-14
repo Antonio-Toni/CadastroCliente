@@ -221,7 +221,7 @@ begin
        SGCadastro.Cells[13,nCel] := CBPais.Text;       // Pais
 
        nCel := nCel + 1;
-       if (nCel = 7) then
+       if (nCel >= 7) then
           SGCadastro.RowCount := SGCadastro.RowCount+1;
 
        LimpVar('T');
