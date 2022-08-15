@@ -1,8 +1,8 @@
 object FCadasto: TFCadasto
-  Left = 354
-  Top = 64
-  Width = 622
-  Height = 690
+  Left = 346
+  Top = 70
+  Width = 610
+  Height = 714
   Caption = 'Cadastro de Clientes'
   Color = cl3DLight
   Font.Charset = DEFAULT_CHARSET
@@ -17,8 +17,8 @@ object FCadasto: TFCadasto
   PixelsPerInch = 96
   TextHeight = 13
   object Lb_Cad_Cli_CgcCpf: TLabel
-    Left = 15
-    Top = 46
+    Left = 8
+    Top = 40
     Width = 21
     Height = 16
     Caption = 'Cpf'
@@ -30,8 +30,8 @@ object FCadasto: TFCadasto
     ParentFont = False
   end
   object Lb_Cad_Cli_InscRg: TLabel
-    Left = 194
-    Top = 46
+    Left = 187
+    Top = 40
     Width = 17
     Height = 16
     Caption = 'Rg'
@@ -43,8 +43,8 @@ object FCadasto: TFCadasto
     ParentFont = False
   end
   object Lb_Cad_Cli_Razao: TLabel
-    Left = 15
-    Top = 88
+    Left = 8
+    Top = 78
     Width = 37
     Height = 16
     Caption = 'Nome'
@@ -56,8 +56,8 @@ object FCadasto: TFCadasto
     ParentFont = False
   end
   object Lb_Cad_Cli_Telefone: TLabel
-    Left = 13
-    Top = 130
+    Left = 6
+    Top = 118
     Width = 55
     Height = 16
     Caption = 'Telefone'
@@ -69,8 +69,8 @@ object FCadasto: TFCadasto
     ParentFont = False
   end
   object Label20: TLabel
-    Left = 160
-    Top = 130
+    Left = 153
+    Top = 118
     Width = 32
     Height = 16
     Caption = 'Email'
@@ -82,8 +82,8 @@ object FCadasto: TFCadasto
     ParentFont = False
   end
   object Label9: TLabel
-    Left = 16
-    Top = 419
+    Left = 9
+    Top = 398
     Width = 78
     Height = 16
     Caption = 'Cadastrados'
@@ -94,9 +94,48 @@ object FCadasto: TFCadasto
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object Label10: TLabel
+    Left = 6
+    Top = 614
+    Width = 120
+    Height = 14
+    Caption = 'Cpf -> Digitar s'#243' numero.'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 6
+    Top = 627
+    Width = 122
+    Height = 14
+    Caption = 'Cep -> Digitar s'#243' numero.'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label12: TLabel
+    Left = 6
+    Top = 640
+    Width = 308
+    Height = 14
+    Caption = 'Cadastrados -> Duplo clique esquerdo do mouse apaga registro'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+  end
   object MERg: TMaskEdit
-    Left = 192
-    Top = 62
+    Left = 185
+    Top = 56
     Width = 121
     Height = 22
     Font.Charset = DEFAULT_CHARSET
@@ -108,10 +147,10 @@ object FCadasto: TFCadasto
     TabOrder = 1
   end
   object PCEndereco: TPageControl
-    Left = 13
-    Top = 171
+    Left = 6
+    Top = 158
     Width = 580
-    Height = 241
+    Height = 239
     ActivePage = TSEndereco
     TabIndex = 0
     TabOrder = 6
@@ -177,7 +216,7 @@ object FCadasto: TFCadasto
       end
       object Label5: TLabel
         Left = 8
-        Top = 114
+        Top = 113
         Width = 39
         Height = 16
         Caption = 'Bairro'
@@ -190,7 +229,7 @@ object FCadasto: TFCadasto
       end
       object Label6: TLabel
         Left = 253
-        Top = 115
+        Top = 114
         Width = 45
         Height = 16
         Caption = 'Cidade'
@@ -203,7 +242,7 @@ object FCadasto: TFCadasto
       end
       object Label7: TLabel
         Left = 7
-        Top = 151
+        Top = 150
         Width = 13
         Height = 16
         Caption = 'Uf'
@@ -216,7 +255,7 @@ object FCadasto: TFCadasto
       end
       object Label8: TLabel
         Left = 253
-        Top = 151
+        Top = 150
         Width = 27
         Height = 16
         Caption = 'Pais'
@@ -256,7 +295,7 @@ object FCadasto: TFCadasto
       end
       object CBEstado: TComboBox
         Left = 5
-        Top = 166
+        Top = 165
         Width = 49
         Height = 22
         Font.Charset = DEFAULT_CHARSET
@@ -345,7 +384,7 @@ object FCadasto: TFCadasto
       end
       object EBairro: TEdit
         Left = 5
-        Top = 129
+        Top = 128
         Width = 234
         Height = 22
         Font.Charset = DEFAULT_CHARSET
@@ -371,7 +410,7 @@ object FCadasto: TFCadasto
       end
       object ECidade: TEdit
         Left = 251
-        Top = 129
+        Top = 128
         Width = 198
         Height = 22
         Font.Charset = DEFAULT_CHARSET
@@ -384,7 +423,7 @@ object FCadasto: TFCadasto
       end
       object CBPais: TComboBox
         Left = 251
-        Top = 166
+        Top = 165
         Width = 110
         Height = 22
         Font.Charset = DEFAULT_CHARSET
@@ -420,13 +459,13 @@ object FCadasto: TFCadasto
   end
   object SBPRodape: TStatusBar
     Left = 0
-    Top = 632
-    Width = 606
+    Top = 656
+    Width = 594
     Height = 19
     Color = clMoneyGreen
     Panels = <
       item
-        Width = 335
+        Width = 320
       end
       item
         Width = 80
@@ -439,7 +478,7 @@ object FCadasto: TFCadasto
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 606
+    Width = 594
     Height = 33
     ButtonHeight = 26
     ButtonWidth = 36
@@ -512,18 +551,28 @@ object FCadasto: TFCadasto
     end
   end
   object SGCadastro: TStringGrid
-    Left = 14
-    Top = 434
+    Left = 6
+    Top = 413
     Width = 579
     Height = 196
+    Hint = 'duplo clique esquerdo do mouse apaga registro'
     Color = cl3DLight
     ColCount = 14
     RowCount = 7
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 8
+    OnDblClick = SGCadastroDblClick
   end
   object ENome: TEdit
-    Left = 13
-    Top = 103
+    Left = 6
+    Top = 93
     Width = 483
     Height = 26
     Font.Charset = DEFAULT_CHARSET
@@ -535,8 +584,8 @@ object FCadasto: TFCadasto
     TabOrder = 2
   end
   object Etelefone: TEdit
-    Left = 13
-    Top = 145
+    Left = 6
+    Top = 133
     Width = 113
     Height = 22
     Font.Charset = DEFAULT_CHARSET
@@ -548,8 +597,8 @@ object FCadasto: TFCadasto
     TabOrder = 3
   end
   object Email: TEdit
-    Left = 158
-    Top = 145
+    Left = 151
+    Top = 133
     Width = 421
     Height = 22
     Font.Charset = DEFAULT_CHARSET
@@ -561,8 +610,8 @@ object FCadasto: TFCadasto
     TabOrder = 4
   end
   object MECpf: TMaskEdit
-    Left = 13
-    Top = 62
+    Left = 6
+    Top = 56
     Width = 137
     Height = 22
     Hint = '( s'#243' numero )'
@@ -579,8 +628,8 @@ object FCadasto: TFCadasto
     OnExit = MECpfClick
   end
   object MCepApp: TMemo
-    Left = 544
-    Top = 76
+    Left = 562
+    Top = 84
     Width = 29
     Height = 22
     Enabled = False
@@ -1006,24 +1055,24 @@ object FCadasto: TFCadasto
     Request.BasicAuthentication = False
     Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
     HTTPOptions = [hoForceEncodeParams]
-    Left = 544
+    Left = 562
     Top = 45
   end
   object Timer: TTimer
     OnTimer = Timer1Timer
-    Left = 513
-    Top = 48
+    Left = 515
+    Top = 88
   end
   object OpenDialog1: TOpenDialog
-    Left = 480
+    Left = 538
     Top = 47
   end
   object IdSMTP1: TIdSMTP
     MaxLineAction = maException
     Port = 25
     AuthenticationType = atNone
-    Left = 413
-    Top = 55
+    Left = 477
+    Top = 51
   end
   object IdMessage1: TIdMessage
     AttachmentEncoding = 'MIME'
@@ -1033,7 +1082,7 @@ object FCadasto: TFCadasto
     Encoding = meMIME
     Recipients = <>
     ReplyTo = <>
-    Left = 445
+    Left = 509
     Top = 55
   end
 end

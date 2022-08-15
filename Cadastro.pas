@@ -58,6 +58,9 @@ type
     TBEmail: TToolButton;
     IdSMTP1: TIdSMTP;
     IdMessage1: TIdMessage;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
     procedure Timer1Timer(Sender: TObject);
     procedure TBSairClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -73,6 +76,7 @@ type
     Procedure AlimentaCepJson();
     procedure TBGeraXmlClick(Sender: TObject);
     procedure TBEmailClick(Sender: TObject);
+    procedure SGCadastroDblClick(Sender: TObject);
  private
     { Private declarations }
   public
@@ -117,6 +121,17 @@ end;
 
 procedure TFCadasto.FormCreate(Sender: TObject);
 begin
+  DateSeparator     := '/';
+  ShortDateFormat   := 'dd/mm/yyyy';
+  LongDateFormat    := 'dd/mm/yyyy';
+  ThousandSeparator := '.';
+  DecimalSeparator  := ',';
+  TimeSeparator     := ':';
+  TimeAMString      := 'AM';
+  TimePMString      := 'PM';
+  ShortTimeFormat   := 'hh:nn';
+  LongTimeFormat    := 'hh:nn:ss';
+
   MascCpf();
   Cep();
 
@@ -746,4 +761,21 @@ begin
      end;
 end;
 
+procedure TFCadasto.SGCadastroDblClick(Sender: TObject);
+var nLinha, i : integer;
+begin
+  nLinha := SGCadastro.Row;
+  if (trim(SGCadastro.Cells[00,nLinha]) = '') then
+     application.messagebox('Cadastro vazio, favor verificar !!!','Atenção',MB_OK+MB_ICONInformation)
+  else if (Messagedlg('Confirma apagar registro  ?',mtConfirmation,[mbYes,mbNo],0) = mrYes) then
+     Begin
+       for i := nLinha to SGCadastro.RowCount - 2 do
+         SGCadastro.Rows[i].Assign(SGCadastro.Rows[i + 1]);
+
+       if SGCadastro.RowCount > 7 then
+          SGCadastro.RowCount := SGCadastro.RowCount - 1
+       else
+          SGCadastro.RowCount := 7;
+     end;
+end;
 end.
