@@ -221,7 +221,7 @@ begin
        SGCadastro.Cells[13,nCel] := CBPais.Text;       // Pais
 
        nCel := nCel + 1;
-       if (nCel = 7) then
+       if (nCel >= 7) then
           SGCadastro.RowCount := SGCadastro.RowCount+1;
 
        LimpVar('T');
@@ -650,7 +650,7 @@ begin
      (Messagedlg('Confirma envio do e-mail  ?',mtConfirmation,[mbYes,mbNo],0) = mrNo) then
      cOk := 'N';
 
-  cEmailEnvi := '';   //  'NomeEnvio'
+  cEmailEnvi := 'pbalogo@terra.com.br';   //  'NomeEnvio'
   if (cOk = 'S') and
      (cEmailEnvi = '') then
      Begin

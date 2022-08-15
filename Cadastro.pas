@@ -660,15 +660,9 @@ begin
 
   if (cOk = 'S') then
      Begin
-//       OpenDialog1.Title := 'Selecione a pasta';
-//       OpenDialog1.InitialDir := 'C:\';
-//       OpenDialog1.Filter     := '*.XML';
-//       OpenDialog1.FileName   := 'Cadastro.XML';
-
+// Gera o arquivo XML
        TBGeraXmlClick(Sender);
 
-//       if OpenDialog1.Execute then
-//          Begin
        cNomeArq := OpenDialog1.FileName;
 
        cEmailOrig := '';   //  'EmailOrigems'
