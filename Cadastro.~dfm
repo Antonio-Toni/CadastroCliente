@@ -4,7 +4,7 @@ object FCadasto: TFCadasto
   Width = 622
   Height = 690
   Caption = 'Cadastro de Clientes'
-  Color = clBtnFace
+  Color = cl3DLight
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -113,12 +113,6 @@ object FCadasto: TFCadasto
     Width = 580
     Height = 241
     ActivePage = TSEndereco
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'Arial'
-    Font.Style = []
-    ParentFont = False
     TabIndex = 0
     TabOrder = 6
     object TSEndereco: TTabSheet
@@ -429,6 +423,7 @@ object FCadasto: TFCadasto
     Top = 632
     Width = 606
     Height = 19
+    Color = clMoneyGreen
     Panels = <
       item
         Width = 335
@@ -445,13 +440,15 @@ object FCadasto: TFCadasto
     Left = 0
     Top = 0
     Width = 606
-    Height = 35
+    Height = 33
     ButtonHeight = 26
     ButtonWidth = 36
     Caption = 'ToolBar1'
+    Color = clMoneyGreen
     Ctl3D = False
     EdgeBorders = [ebTop, ebBottom]
     Images = ImageList1
+    ParentColor = False
     ParentShowHint = False
     ShowHint = True
     TabOrder = 7
@@ -506,7 +503,7 @@ object FCadasto: TFCadasto
     object TBEmail: TToolButton
       Left = 420
       Top = 2
-      Hint = 'Envio de E-mail'
+      Hint = 'Gera Xml e envia o E-mail'
       Caption = 'TBEmail'
       ImageIndex = 3
       ParentShowHint = False
@@ -519,6 +516,7 @@ object FCadasto: TFCadasto
     Top = 434
     Width = 579
     Height = 196
+    Color = cl3DLight
     ColCount = 14
     RowCount = 7
     TabOrder = 8

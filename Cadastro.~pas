@@ -221,7 +221,7 @@ begin
        SGCadastro.Cells[13,nCel] := CBPais.Text;       // Pais
 
        nCel := nCel + 1;
-       if (SGCadastro.RowCount > 10) then
+       if (nCel = 7) then
           SGCadastro.RowCount := SGCadastro.RowCount+1;
 
        LimpVar('T');
@@ -637,7 +637,6 @@ var nCel, nLinhas, nPorta : Integer;
 var cOk, cCodigo, cNomeArq, cEmailEnvi, cEmailOrig,
     cSmtp, cSmtpServ, cSenha, cComCopia, cCCo,
     cEmailConf, cNomeConf, cAssunto, cMensagem : String;
-//var lEmailSSL : Boolean;
 begin
   cOk := 'S';
   cCodigo := trim(SGCadastro.Cells[00,1]);  // Codigo
@@ -659,94 +658,95 @@ begin
 
   if (cOk = 'S') then
      Begin
-       OpenDialog1.Title := 'Selecione a pasta';
-       OpenDialog1.InitialDir := 'C:\';
-       OpenDialog1.Filter     := '*.XML';
-       OpenDialog1.FileName   := 'Cadastro.XML';
+//       OpenDialog1.Title := 'Selecione a pasta';
+//       OpenDialog1.InitialDir := 'C:\';
+//       OpenDialog1.Filter     := '*.XML';
+//       OpenDialog1.FileName   := 'Cadastro.XML';
 
-       if OpenDialog1.Execute then
-          Begin
-            cNomeArq := OpenDialog1.FileName;
+       TBGeraXmlClick(Sender);
 
-            cEmailOrig := '';   //  'EmailOrigems'
-            cSmtp      := '';   //  'Smtps'
-            cSmtpServ  := '';   //  SmtpServs'
-            nPorta     := 0;    //   'Portas'
-            cSenha     := '';   //  'Senhas'
-            cComCopia  := '';   //  'ComCopias'
-            cCCo       := '';   //  'CCOs'
-            cEmailConf := '';   //  'EMailConf'
-            cNomeConf  := '';   //  'NomeConf'
-//            lEmailSSL  := False;
+//       if OpenDialog1.Execute then
+//          Begin
+       cNomeArq := OpenDialog1.FileName;
+
+       cEmailOrig := '';   //  'EmailOrigems'
+       cSmtp      := '';   //  'Smtps'
+       cSmtpServ  := '';   //  SmtpServs'
+       nPorta     := 0;    //   'Portas'
+       cSenha     := '';   //  'Senhas'
+       cComCopia  := '';   //  'ComCopias'
+       cCCo       := '';   //  'CCOs'
+       cEmailConf := '';   //  'EMailConf'
+       cNomeConf  := '';   //  'NomeConf'
 // alimentar o campo memo com o cadastro
-            MCepApp.clear;
-            MCepApp.lines.add( 'Cadastro de Cliente;' );
-            MCepApp.lines.add( '' );
+       MCepApp.clear;
+       MCepApp.lines.add( 'Cadastro de Cliente;' );
+       MCepApp.lines.add( '' );
 
-            nLinhas := SGCadastro.RowCount;
-            for nCel := 1 to nLinhas do Begin
-               cCodigo := trim(SGCadastro.Cells[00,nCel]);  // Codigo
-               if (cCodigo <> '') then
-                  Begin
-                    MCepApp.lines.add( 'Cpf .........'+SGCadastro.Cells[01,nCel] );
-                    MCepApp.lines.add( 'Rg ..........'+SGCadastro.Cells[02,nCel] );
-                    MCepApp.lines.add( 'Nome ........'+SGCadastro.Cells[03,nCel] );
-                    MCepApp.lines.add( 'Telefone ....'+SGCadastro.Cells[04,nCel] );
-                    MCepApp.lines.add( 'Email .......'+SGCadastro.Cells[05,nCel] );
-                    MCepApp.lines.add( 'Cep .........'+SGCadastro.Cells[06,nCel] );
-                    MCepApp.lines.add( 'Logradouro ..'+SGCadastro.Cells[07,nCel] );
-                    MCepApp.lines.add( 'Nro .........'+SGCadastro.Cells[08,nCel] );
-                    MCepApp.lines.add( 'Complemento .'+SGCadastro.Cells[09,nCel] );
-                    MCepApp.lines.add( 'Bairro ......'+SGCadastro.Cells[10,nCel] );
-                    MCepApp.lines.add( 'Cidade ......'+SGCadastro.Cells[11,nCel] );
-                    MCepApp.lines.add( 'Estado ......'+SGCadastro.Cells[12,nCel] );
-                    MCepApp.lines.add( 'Pais ........'+SGCadastro.Cells[13,nCel] );
-                    MCepApp.lines.add( '=========================================================' );
-                  end;
-            end;
+       nLinhas := SGCadastro.RowCount;
+       for nCel := 1 to nLinhas do Begin
+          cCodigo := trim(SGCadastro.Cells[00,nCel]);  // Codigo
+          if (cCodigo <> '') then
+             Begin
+               MCepApp.lines.add( 'Cpf .........'+SGCadastro.Cells[01,nCel] );
+               MCepApp.lines.add( 'Rg ..........'+SGCadastro.Cells[02,nCel] );
+               MCepApp.lines.add( 'Nome ........'+SGCadastro.Cells[03,nCel] );
+               MCepApp.lines.add( 'Telefone ....'+SGCadastro.Cells[04,nCel] );
+               MCepApp.lines.add( 'Email .......'+SGCadastro.Cells[05,nCel] );
+               MCepApp.lines.add( 'Cep .........'+SGCadastro.Cells[06,nCel] );
+               MCepApp.lines.add( 'Logradouro ..'+SGCadastro.Cells[07,nCel] );
+               MCepApp.lines.add( 'Nro .........'+SGCadastro.Cells[08,nCel] );
+               MCepApp.lines.add( 'Complemento .'+SGCadastro.Cells[09,nCel] );
+               MCepApp.lines.add( 'Bairro ......'+SGCadastro.Cells[10,nCel] );
+               MCepApp.lines.add( 'Cidade ......'+SGCadastro.Cells[11,nCel] );
+               MCepApp.lines.add( 'Estado ......'+SGCadastro.Cells[12,nCel] );
+               MCepApp.lines.add( 'Pais ........'+SGCadastro.Cells[13,nCel] );
+               MCepApp.lines.add( '=========================================================' );
+             end;
+       end;
 
-            cAssunto := 'Cadastro Cliente '+Copy(dateTimeToStr(now),1,10);
-            cMensagem := trim(MCepApp.Text);
+       cAssunto := 'Cadastro Cliente '+Copy(dateTimeToStr(now),1,10);
+       cMensagem := trim(MCepApp.Text);
 
-            IdMessage1.MessageParts.Clear;
-            IdMessage1.Body.Clear;
+       IdMessage1.MessageParts.Clear;
+       IdMessage1.Body.Clear;
 
-            IdMessage1.From.Text := cEmailOrig;        // Email de quem vai enviar
-            IdMessage1.From.Name := '';                // Nome de quem vai enviar
-            IdMessage1.Recipients.EMailAddresses := cEmailEnvi;  // quem ira receber sua mensagem
-            if (cComCopia <> '') then
-               IdMessage1.CCList.EMailAddresses := cComCopia;      // Com Copia;
-            if (cCCo <> '') then
-               IdMessage1.BccList.EMailAddresses := cCCo;           // Copia oculta
+       IdMessage1.From.Text := cEmailOrig;        // Email de quem vai enviar
+       IdMessage1.From.Name := '';                // Nome de quem vai enviar
+       IdMessage1.Recipients.EMailAddresses := cEmailEnvi;  // quem ira receber sua mensagem
+       if (cComCopia <> '') then
+          IdMessage1.CCList.EMailAddresses := cComCopia;      // Com Copia;
+       if (cCCo <> '') then
+          IdMessage1.BccList.EMailAddresses := cCCo;           // Copia oculta
 
-            IdMessage1.Subject := cAssunto;                      // Assunto da Messangem
-            IdMessage1.Body.Add(cMensagem);                      // ('Boa tarde Teste de envio');
-            IdMessage1.Priority := mpNormal;                     // Prioridade da Messangem do tipo normal
+       IdMessage1.Subject := cAssunto;                      // Assunto da Messangem
+       IdMessage1.Body.Add(cMensagem);                      // ('Boa tarde Teste de envio');
+       IdMessage1.Priority := mpNormal;                     // Prioridade da Messangem do tipo normal
 
-            if (cNomeArq <> '') then
-               TIdAttachment.Create(idmessage1.MessageParts, TFileName(pchar(cNomeArq)));
+       if (cNomeArq <> '') then
+          TIdAttachment.Create(idmessage1.MessageParts, TFileName(pchar(cNomeArq)));
 
-            IdSMTP1.Port := nPorta;                 // 587;                      // Porta usada
-            IdSMTP1.Host := cSmtpServ;              //'smtp.globo.com';          // Servidor de SMTP
-            IdSMTP1.Username := cSmtp;                //'losgrobo.nfe@globo.com';  // Usuario do Servidor de SMTP
-            IdSMTP1.Password := cSenha;             //'j19d47i30';               // Senha do Servidor de SMTP
-            IdSMTP1.AuthenticationType := atlogin;  //Autenticação usada por requerimentos do Servidor de SMTP   ou IdSMTP1.AuthType := atDefault
+       IdSMTP1.Port := nPorta;                 // 587;                      // Porta usada
+       IdSMTP1.Host := cSmtpServ;              //'smtp.globo.com';          // Servidor de SMTP
+       IdSMTP1.Username := cSmtp;                //'losgrobo.nfe@globo.com';  // Usuario do Servidor de SMTP
+       IdSMTP1.Password := cSenha;             //'j19d47i30';               // Senha do Servidor de SMTP
+       IdSMTP1.AuthenticationType := atlogin;  //Autenticação usada por requerimentos do Servidor de SMTP   ou IdSMTP1.AuthType := atDefault
 
-            if not IdSMTP1.Connected then
+       if not IdSMTP1.Connected then
+          Begin
+            IdSMTP1.Connect;
+            if IdSMTP1.Connected then
                Begin
-                 IdSMTP1.Connect;
-                 if IdSMTP1.Connected then
-                    Begin
-                      IdSMTP1.Authenticate();
-                      IdSMTP1.Send(IdMessage1);
-                      IdSMTP1.Disconnect;
+                 IdSMTP1.Authenticate();
+                 IdSMTP1.Send(IdMessage1);
+                 IdSMTP1.Disconnect;
 
-                      application.messagebox('E-Mail enviado ...','Atenção',MB_OK+MB_ICONInformation);
-                    end
-                 else
-                    application.messagebox('E-Mail não enviado erro na transmissão ...','Atenção',MB_OK+MB_ICONInformation);
-               end;
+                 application.messagebox('E-Mail enviado ...','Atenção',MB_OK+MB_ICONInformation);
+               end
+            else
+               application.messagebox('E-Mail não enviado erro na transmissão ...','Atenção',MB_OK+MB_ICONInformation);
           end;
+//          end;
      end;
 end;
 
